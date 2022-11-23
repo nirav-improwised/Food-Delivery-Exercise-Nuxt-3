@@ -11,7 +11,9 @@
     "nuxt": "3.0.0"
   },
   "dependencies": {
-    "bootstrap-vue": "^2.23.1",
-    "eslint": "^8.28.0"
+    "@nuxt/vite-builder": "^3.0.0",
+    "bootstrap": "^5.2.3",
+    "eslint": "^8.28.0",
+    "vue-router": "^4.1.6"
   }
 }
