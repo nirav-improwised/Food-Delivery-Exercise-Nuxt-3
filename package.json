@@ -9,5 +9,9 @@
   },
   "devDependencies": {
     "nuxt": "3.0.0"
+  },
+  "dependencies": {
+    "bootstrap-vue": "^2.23.1",
+    "eslint": "^8.28.0"
   }
 }
