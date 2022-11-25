@@ -1,47 +1,52 @@
 <template>
-<section class="container-lg mt-3 mb-4 pt-1">
-<div id="filters" class="fs-3 row d-flex justify-content-between mt-1">
+    <section class="container-lg mt-3 mb-4 pt-1">
+    <div id="filters" class="fs-3 row d-flex mt-1">
+    
+        <div class="text-danger mb-1">Help Us Select Your Preferences</div>
+        <HorizontalRule />
+    
+        <div class="col-6 d-flex justify-content-between mt-3">
+            
+            <input type="checkbox" class="btn-check" id="delivering" name="Has Online Delivery">
+            <label for="delivering" class="btn btn-danger me-2">Delivering</label>
+    
+            <input type="checkbox" class="btn-check" id="reservations" name="Has Table booking">
+            <label for="reservations" class="btn btn-danger me-2">Advanced Bookings</label>
+    
+ <!-- <select placeholder="City" class="form-control" id="exampleFormControlSelect1" name="city"> -->
+                      <!-- <option>Nirav</option> -->
+                      <!-- <option selected>London</option>
+                      <option>Boston</option>
+                      <option>Mumbai</option>
+                      <option>New York</option>
+                      <option>Toronto</option>
+                      <option>Paris</option> -->
+                  <!-- </select> -->
 
-    <div class="col-xxl-2 col-sm-11 text-dark fw-bold"> Apply Filters</div>
-
-    <div class="col-xxl-9 col-lg-8 col-sm-12 ms-auto">
-        
-        <input type="checkbox" class="btn-check" id="delivering" name="Has Online Delivery">
-        <label for="delivering" class="btn btn-danger me-2">Delivering</label>
-
-        <input type="checkbox" class="btn-check" id="reservations" name="Has Table booking">
-        <label for="reservations" class="btn btn-danger me-2">Advanced Bookings</label>
-
-        <button class="btn btn-danger dropdown-toggle me-2" type="button" name="Cuisines" data-bs-toggle="dropdown" aria-expanded="false">
-            Cuisine
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Indian</a></li>
-            <li><a class="dropdown-item" href="#">Thai</a></li>
-            <li><a class="dropdown-item" href="#">Japanese</a></li>
-        </ul>
-
-        <button class="btn btn-danger dropdown-toggle me-2" type="button" name="Currency" data-bs-toggle="dropdown" aria-expanded="false">
-            Currency
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">INR</a></li>
-            <li><a class="dropdown-item" href="#">USD</a></li>
-            <li><a class="dropdown-item" href="#">RUB</a></li>
-        </ul>
-
-        <button class="btn btn-danger dropdown-toggles" type="button" name="Aggregate rating" data-bs-toggle="dropdown" aria-expanded="false">
-            Ratings
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">4+</a></li>
-            <li><a class="dropdown-item" href="#">3+</a></li>
-            <li><a class="dropdown-item" href="#">2+</a></li>
-            <li><a class="dropdown-item" href="#">1+</a></li>
-        </ul>
-        
+            <select class="btn btn-danger dropdown-toggle me-2" placeholder="Cuisine" type="button" name="Cuisines" data-bs-toggle="dropdown" aria-expanded="false">
+                <!-- <option>Cuisine</option> -->
+                <option>Indian</option>
+                <option>Thai</option>
+                <option>Japanese</option>
+            </select>
+    
+            <select class="btn btn-danger dropdown-toggle me-2" placeholder="Currency" type="button" name="Currency" data-bs-toggle="dropdown" aria-expanded="false">
+                <!-- <option>Currency</option> -->
+                <option>INR</option>
+                <option>USD</option>
+                <option>RUB</option>
+            </select>
+    
+            <select class="btn btn-danger dropdown-toggle me-2" placeholder="Ratings" type="button" name="Ratings" data-bs-toggle="dropdown" aria-expanded="false">
+                <!-- <option>Ratings</option> -->
+                <option>4+</option>
+                <option>3+</option>
+                <option>2+</option>
+                <option>1+</option>
+            </select>
+            
+        </div>
+    
     </div>
-
-</div>
-</section>
-</template>
+    </section>
+    </template>
