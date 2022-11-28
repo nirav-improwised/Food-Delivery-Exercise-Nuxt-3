@@ -2,10 +2,10 @@
 <main class="mt-0 mb-1 pt-1">
   <section class="bgSPImage">
     <div class="container-lg">
-        <div class="position-relative top-25 w-50 text-white">
+        <div class="mt-4 pt-4 w-50 text-white">
             <h1>Discover Best Restaurants Delevering near you</h1>
         </div>
-          <div class="row d-flex justify-content-between h3 mt-lg-5 mt-sm-2 pt-md-5 pt-sm3">
+          <div class="row d-flex h3 mt-lg-5 mt-sm-2 pt-md-5 pt-sm-3 ms-1">
              <form id="search-form">
                 <div class="col-md-2 col-3 p-0 d-inline-block">
                   <select class="form-control" id="exampleFormControlSelect1" name="city">
