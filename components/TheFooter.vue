@@ -43,7 +43,7 @@
 </div>
 
 <div class="text-center p-3">
-    &#169; 2022 Copyright: Zomato
+    &#169; 2022 Zomato Company All rights reserved.
 </div>
 
 </footer>
