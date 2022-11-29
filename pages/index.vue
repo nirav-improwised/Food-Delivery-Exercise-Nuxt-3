@@ -1,6 +1,6 @@
 <template>
     <div>
-        <SearchPanel />
+        <SearchPanel :data="restros"/>
         <Filters />
         <List :data="restros"/>
     </div>
