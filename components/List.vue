@@ -11,6 +11,7 @@
                     </span>
                     <ul class="list-unstyled">
                         <li class="card-text">{{data[i].Cuisines}}</li>
+                        <li class="card-text">Delivering Now: {{data[i].IsDeliveringNow}}</li>
                     </ul>
                     <a href="#" class="btn btn-danger p-1">
                         Order
