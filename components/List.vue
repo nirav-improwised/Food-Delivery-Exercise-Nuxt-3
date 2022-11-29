@@ -1,6 +1,6 @@
 <template>
 <section class="container-lg mt-1 mb-4 pt-1">
-    <div class="row row-cols-lg-4 row-cols-sm-3 row-cols-xs-2 row-cols-1">
+    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-xs-2 row-cols-1">
         <div v-for="i, index in 20" :key="index" class="col">
             <div class="card shadow mt-4 border border-white">
                 <img src="../assets/card-1-image.png" alt="" class="card-img-top">
