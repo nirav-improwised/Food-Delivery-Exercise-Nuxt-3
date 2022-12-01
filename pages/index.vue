@@ -1,7 +1,7 @@
 <template>
     <div>
         <SearchPanel />
-        <Filters />
+        <Filters :data="restros"/>
         <List :data="restros"/>
     </div>
 </template>
