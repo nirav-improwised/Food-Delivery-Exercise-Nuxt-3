@@ -8,16 +8,16 @@
         <div class="row d-flex h3 mt-lg-5 mt-sm-2 pt-md-5 pt-sm-3 ms-1">
                 <div class="col-md-2 col-3 p-0 d-inline-block">
 
-                <select class="form-select" v-model="tempCity" id="select_city" name="location">
+                <select class="form-select" v-model="search.City" id="select_city" name="location">
                     <option v-for="(city, index) in cityList" :key="index" :value="city">{{city}}</option>
                 </select>
 
                 </div>
                 <div class="col-md-4 col-3 p-0 d-inline-block">
-                    <input type="text" placeholder="Search Cuisine" class="form-control" id="search" name="cuisine">
+                    <input type="text" placeholder="Search Restaurant here" v-model="search.RestaurantName" class="form-control" id="search" name="searchRestro">
                 </div>
                 <div class="col-1 p-0 d-inline-block">
-                    <button type="submit" class="btn btn-danger ms-1">
+                    <button type="submit" @click="pushSearchToQuery" class="btn btn-danger ms-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                     </button>
                 </div>
@@ -40,18 +40,39 @@
 // import { removeDuplicates } from '~~/composables/removeDuplicates.js';
 
 const router = useRouter();
-let tempCity = ref('');
-let mj = ref('');
 
-watch(tempCity, (tempCity) => {
-    router.push({
-    path: '/',
-    query: { city: tempCity },
-    });
-    emit("selectedCity", tempCity);
+let search = ref({
+    City: "",
+    RestaurantName: ""
 })
 
-const emit = defineEmits(['selectedCity']);
+// watch(searchCity, (searchCity) => {
+//     router.push({
+//     path: '/',
+//     query: { city: searchCity },
+//     });
+//     emit("searchCity", searchCity);
+// })
+
+// watch(searchRestro, (searchRestro)=>{
+//     router.push({
+//     // path: '/',
+//     query: { RestaurantName: searchRestro },
+//     });
+//     emit("searchCity", searchRestro);
+// })
+
+function pushSearchToQuery(){
+    router.push({
+    path: '/',
+    query: { city: search.value.City, RestaurantName: search.value.RestaurantName },
+    });
+    // alert(searchCity.value);
+    emit("search", search.value);
+}
+
+const emit = defineEmits(['search']);
+// const emit = defineEmits(['searchCity']);
 
 // const rD = require('../composables/removeDuplicates.js');   
 
@@ -63,7 +84,6 @@ data: Array
 let duplicatedCityList, cityList;
 duplicatedCityList = await getCityArr(props.data);
 cityList = await removeDuplicates(duplicatedCityList);
-console.log(cityList);
 
 function getCityArr(data){
 let promise = new Promise(function(resolve, reject){
