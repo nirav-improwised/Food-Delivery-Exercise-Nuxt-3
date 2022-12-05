@@ -9,11 +9,12 @@
                 <div class="col-md-2 col-3 p-0 d-inline-block">
 
                 <select class="form-select" v-model="search.City" id="select_city" name="location">
+                    <option value="">Select City</option>
                     <option v-for="(city, index) in cityList" :key="index" :value="city">{{city}}</option>
                 </select>
 
                 </div>
-                <div class="col-md-4 col-3 p-0 d-inline-block">
+                <div class="col-md-4 ms-2 col-3 p-0 d-inline-block">
                     <input type="text" placeholder="Search Restaurant here" v-model="search.RestaurantName" class="form-control" id="search" name="searchRestro">
                 </div>
                 <div class="col-1 p-0 d-inline-block">

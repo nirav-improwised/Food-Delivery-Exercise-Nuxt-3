@@ -1,6 +1,5 @@
 <template>
-<section class="container-lg mt-1 mb-4 pt-1">
-    {{filteredList}}
+<section class="container-lg mb-4">
     <div class="row row-cols-lg-4 row-cols-md-3 row-cols-xs-2 row-cols-1">
         <div v-for="restro, index in filteredList" :key="index" class="col">
             <div class="card shadow mt-4 border border-white">
@@ -35,7 +34,6 @@ let filteredList = ref(props.data.slice(0, 8));
 let route = useRoute();
 
 watch(() => route.query, async (newV, oldV) => {
-    alert("inside watch")
     let temp = [];
     if(route.query['city'] !=="" || route.query['RestaurantName'] !==""){
         props.data.forEach(restro => {
