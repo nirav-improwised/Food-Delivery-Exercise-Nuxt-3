@@ -1,0 +1,70 @@
+<!-- <Filters :data="restros" @filters="(filters)=>ApplyFilters(filters)"/> -->
+<!-- <List :data="filteredRestros" /> -->
+
+
+// let filteredRestaurants = ref();
+// filteredRestaurants = restros.value.slice(0, 20);
+
+// function ApplyFilters(filters){
+//     // let hOD = "";
+//     // let hTB = "";
+//     let temp = [];
+//     // if(filters.hasOnlineDelivery){
+//     //     hOD = "Yes";
+//     // }else{
+//     //     hOD = "No";
+//     // }
+    
+//     // if(filters.hasTableBooking){
+//     //     hTB = "Yes";
+//     // }else{
+//     //     hTB = "No";
+//     // }
+
+//     restros.value.forEach(restro => {
+//         let flagHTB = 1;
+//         let flagHOD = 1;
+//         let flagCuisine = 1;
+//         let flagCurrency = 1;
+//         if ((!restro.HasTableBooking.includes(filters.hasOnlineDelivery)) && filters.hasOnlineDelivery !==""){
+//             flagHTB=0;
+//         }
+//         else{
+//             // alert("Matched tabelBooking");
+//         }
+//         if ((!restro.HasOnlineDelivery.includes(filters.hasTableBooking)) && filters.hasTableBooking !==""){
+//             flagHOD=0;
+//         }
+//         else{
+//             // alert("Matched delivery");
+//         }
+//         if (!restro.Cuisines.includes(filters.cuisine)){
+//             flagCuisine=0;
+//         }
+//         else{
+//             // alert("Matched cuisine");
+//         }
+//         if (!restro.Currency.includes(filters.currency)){
+//             flagCurrency=0;
+//         }
+//         else{
+//             // alert("Matched currency");
+//         }
+//         // if (!((parseFloat(restro.AggregateRating)) <= (parseFloat(filters.rating)))){
+//         //     flagRating=0;
+//         // }
+//         if (flagHTB===1 && flagHOD===1 && flagCuisine===1 && flagCurrency === 1){
+//             temp.push(restro);
+//             // alert("added");
+//         }
+//         else{
+//             // alert("Problem in condition");
+//             // alert(flagHTB);
+//             // alert(flagHOD);
+//             // alert(flagCuisine);
+//             // alert(flagCurrency);
+//         }
+//     });
+//     filteredRestaurants = temp;
+//     // console.log("filteredRestaurants", filteredRestaurants);
+// }
