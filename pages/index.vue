@@ -1,26 +1,11 @@
 <template>
     <div>
-        <SearchPanel :data="restros" @search="(search)=>searchFilter(search)"/>
+        <SearchPanel :data="restros"/>
         <Filters />
-        <List :data="filteredRestros" />
+        <List :data="restros" />
     </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
 let { data: restros } = await useFetch('http://127.0.0.1:5500/restro', { mode: 'no-cors'});
-let filteredRestros = ref();
-filteredRestros = restros.value.slice(0,20);
-
-function searchFilter(searchObject){
-    let temp = [];
-    if(searchObject.City !=="" || searchObject.RestaurantName !==""){
-        restros.value.forEach(restro => {
-        if (restro.City.includes(searchObject.City) && restro.RestaurantName.includes(searchObject.RestaurantName)){
-            temp.push(restro);
-        }
-    });
-    filteredRestros = temp;
-    }
-}
 </script>

@@ -37,8 +37,6 @@
 
 <script setup>
 
-// import { removeDuplicates } from '~~/composables/removeDuplicates.js';
-
 const router = useRouter();
 
 let search = ref({
@@ -46,41 +44,17 @@ let search = ref({
     RestaurantName: ""
 })
 
-// watch(searchCity, (searchCity) => {
-//     router.push({
-//     path: '/',
-//     query: { city: searchCity },
-//     });
-//     emit("searchCity", searchCity);
-// })
-
-// watch(searchRestro, (searchRestro)=>{
-//     router.push({
-//     // path: '/',
-//     query: { RestaurantName: searchRestro },
-//     });
-//     emit("searchCity", searchRestro);
-// })
-
 function pushSearchToQuery(){
     router.push({
     path: '/',
     query: { city: search.value.City, RestaurantName: search.value.RestaurantName },
     });
-    // alert(searchCity.value);
-    emit("search", search.value);
 }
-
-const emit = defineEmits(['search']);
-// const emit = defineEmits(['searchCity']);
-
-// const rD = require('../composables/removeDuplicates.js');   
 
 const props = defineProps({
 data: Array
 });
 
-// Making an array of cities
 let duplicatedCityList, cityList;
 duplicatedCityList = await getCityArr(props.data);
 cityList = await removeDuplicates(duplicatedCityList);

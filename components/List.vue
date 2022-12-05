@@ -1,7 +1,8 @@
 <template>
 <section class="container-lg mt-1 mb-4 pt-1">
+    {{filteredList}}
     <div class="row row-cols-lg-4 row-cols-md-3 row-cols-xs-2 row-cols-1">
-        <div v-for="restro, index in props.data" :key="index" class="col">
+        <div v-for="restro, index in filteredList" :key="index" class="col">
             <div class="card shadow mt-4 border border-white">
                 <img src="../assets/card-1-image.png" alt="" class="card-img-top">
                 <div class="card-body p-1 pt-2 mb-2 position-relative">
@@ -29,5 +30,21 @@
 <script setup>
 const props = defineProps({
     data: Array,
+});
+let filteredList = ref(props.data.slice(0, 8));
+let route = useRoute();
+
+watch(() => route.query, async (newV, oldV) => {
+    alert("inside watch")
+    let temp = [];
+    if(route.query['city'] !=="" || route.query['RestaurantName'] !==""){
+        props.data.forEach(restro => {
+        if (restro.City.includes(route.query['city']) && restro.RestaurantName.includes(route.query['RestaurantName'])){
+            temp.push(restro);
+        }
+    });
+    filteredList.value = temp;
+    console.log("filteredList", filteredList.value);
+}
 });
 </script>
