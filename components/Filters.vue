@@ -6,26 +6,28 @@
 
     <div class="justify-content-between mt-2">
         
-        <input type="checkbox" v-model="filters.hasOnlineDelivery" class="btn-check mt-1" id="delivering" name="Has Online Delivery">
-        <label for="delivering" class="btn btn-danger me-2">Home Delivery</label>
+        <input type="checkbox" v-model="filters.hasOnlineDelivery" class="btn-check" id="delivering" name="Has Online Delivery">
+        <label for="delivering" class="btn btn-danger me-2 mt-1">Home Delivery</label>
 
-        <input type="checkbox" v-model="filters.hasTableBooking" class="btn-check mt-1" id="reservations" name="Has Table booking">
-        <label for="reservations" class="btn btn-danger me-2">Advanced Bookings</label>
+        <input type="checkbox" v-model="filters.hasTableBooking" class="btn-check" id="reservations" name="Has Table booking">
+        <label for="reservations" class="btn btn-danger me-2 mt-1">Advanced Bookings</label>
 
-        <select class="btn btn-danger dropdown-toggle me-2 mt-1 pt-1" v-model="filters.cuisine" placeholder="Cuisine" type="button" name="Cuisines" data-bs-toggle="dropdown" aria-expanded="false">
+        <select class="btn btn-danger dropdown-toggle me-2 py-2 mt-1" v-model="filters.cuisine" placeholder="Cuisine" type="button" name="Cuisines" data-bs-toggle="dropdown" aria-expanded="false">
             <option value="">Cuisine</option>
             <option class="bg bg-light text-dark" v-for="cuisine, index in uniQcuisines" :key="index" :value="cuisine" :selected="cuisine=='Indian'">{{cuisine}}</option>
         </select>
 
-        <select class="btn btn-danger dropdown-toggle me-2 mt-1 pt-1" v-model="filters.currency" placeholder="Currency" type="button" name="Currency" data-bs-toggle="dropdown" aria-expanded="false">
+        <select class="btn btn-danger dropdown-toggle me-2 py-2 mt-1" v-model="filters.currency" placeholder="Currency" type="button" name="Currency" data-bs-toggle="dropdown" aria-expanded="false">
             <option value="">Currency</option>
             <option class="bg bg-light text-dark" v-for="currency, index in uniQcurrencies" :key="index" :value="currency" :selected="currency=='Indian Rupee'">{{currency}}</option>
         </select>
 
-        <select class="btn btn-danger dropdown-toggle me-2 mt-1 pt-1" v-model="filters.rating" placeholder="Ratings" type="button" name="Rating" data-bs-toggle="dropdown" aria-expanded="false">
+        <select class="btn btn-danger dropdown-toggle me-2 py-2 mt-1" v-model="filters.rating" placeholder="Ratings" type="button" name="Rating" data-bs-toggle="dropdown" aria-expanded="false">
             <option value="">Ratings</option>
             <option class="bg bg-light text-dark" v-for="i, index in 4" :key="index" :value="i" :selected="i==3">{{i}}+</option>
         </select>
+
+        <button class="btn btn-outline-danger fw-bold border border-2 border-danger mt-1" @click="clearFilters">Clear All</button>
         
     </div>
 
@@ -55,6 +57,14 @@ watch(filters.value, ()=>{
     query: { HasOnlineDelivery: filters.value.hasOnlineDelivery, HasTableBooking: filters.value.hasTableBooking, Cuisines: filters.value.cuisine, Currency: filters.value.currency, AggregateRating: filters.value.rating},
     });
 });
+
+function clearFilters(){
+    filters.value.hasOnlineDelivery = "";
+    filters.value.hasTableBooking = "";
+    filters.value.cuisine = "";
+    filters.value.currency = "";
+    filters.value.rating = "";
+}
 
 let duplicated_cuisines, uniQcuisines;
 duplicated_cuisines = await getCuisineArray(props.data)
