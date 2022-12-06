@@ -1,11 +1,11 @@
 <template>
-<main class="mt-0 mb-1 pt-1">
+<main class="mt-0 mb-1 pt-0">
     <section class="bgSPImage">
     <div class="container-lg">
-        <div class="mt-4 pt-4 w-50 text-white">
+        <div class="mt-2 pt-4 w-50 text-white panelTopPadding">
             <h1>Discover Best Restaurants Delevering near you</h1>
         </div>
-        <div class="row d-flex h3 mt-lg-5 mt-sm-2 pt-md-5 pt-sm-3 ms-1">
+        <div class="row d-flex h3 pt-3 ms-1">
                 <div class="col-md-2 col-3 p-0 d-inline-block">
 
                 <select class="form-select" v-model="search.City" id="select_city" name="location">
@@ -33,6 +33,9 @@
     background: linear-gradient(rgba(25, 25, 25, 0.7),
                     rgba(25, 25, 25, 0.7)), url("../assets/background.jpg")no-repeat center center/cover;
     height: 50vh;
+}
+.panelTopPadding{
+    padding-top: 9% !important;
 }
 </style>
 

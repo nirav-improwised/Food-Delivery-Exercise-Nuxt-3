@@ -1,6 +1,6 @@
 <template>
     <header>
-        <nav class="navbar navbar-expand-lg ">
+        <nav class="navbar navbar-expand-lg mb-0 pb-0">
             <div class="container-lg">
                 
                 <a href="#" class="navbar-brand">
