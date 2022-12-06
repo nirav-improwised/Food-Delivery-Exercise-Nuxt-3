@@ -17,7 +17,7 @@
                             <a href="#" class="nav-link text-dark">Download App</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-dark">Add Restaurant</a>
+                            <a href="/addRestro" class="nav-link text-dark">Add Restaurant</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link text-dark">Log in</a>

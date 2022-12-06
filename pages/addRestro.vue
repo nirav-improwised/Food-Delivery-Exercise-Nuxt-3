@@ -115,22 +115,22 @@
                     </label>
                 </div>
             </div>
-                <label for="" class="form-label">Price Range</label>
-                <div class="row">
-                    <div class="col-md-2">
-                        <label for="" class="form-label col-form-label">Lowest Price</label>
-                        <div>
-                            <input type="number" class="form-control" id="minPrice" placeholder="e.g. 100">
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <label for="" class="form-label col-form-label">Highest Price</label>
-                        <div>
-                            <input type="number" class="form-control" id="maxPrice" placeholder="e.g. 500">
-                        </div>
+            <label for="" class="form-label">Price Range</label>
+            <div class="row">
+                <div class="w-25">
+                    <label for="minPrice" class="form-label">Lowest Price</label>
+                    <div class="pe-0">
+                        <input type="number" class="form-control w-md-50 w-75" id="minPrice" placeholder="e.g. 100">
                     </div>
                 </div>
-            <button type="submit" href="/" class="btn btn-success col-2 fs-5 mb-3 ms-2">Submit Form</button>
+                <div class="w-25">
+                    <label for="maxPrice" class="form-label">Highest Price</label>
+                    <div class="pe-0">
+                        <input type="number" class="form-control w-md-50 w-75" id="maxPrice" placeholder="e.g. 500">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" href="/" class="btn btn-success col-4 col-md-3 col-lg-2 fs-5 mb-3 ms-2">Submit Form</button>
         </div>
         </form>
     </div>
