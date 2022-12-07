@@ -46,7 +46,7 @@ watch(() => route.query, async (newV, oldV) => {
         let flagRating = 1;
         let flagCity = 1;
         let flagRestaurantName = 1;
-        if(route.query['HasOnlineDelivery']!==""){
+        if(route.query['HasOnlineDelivery'] && route.query['HasOnlineDelivery']!==""){
             if (route.query['HasOnlineDelivery'] === 'true' && !(restro.HasOnlineDelivery.includes('Yes'))){
                 flagHOD=0;
             }else if(route.query['HasOnlineDelivery'] === 'false' && !restro.HasOnlineDelivery.includes('No')){
@@ -55,30 +55,33 @@ watch(() => route.query, async (newV, oldV) => {
 
             }
         }
-        if(route.query['HasTableBooking']!==""){
+        if(route.query['HasTableBooking'] && route.query['HasTableBooking']!==""){
             if (route.query['HasTableBooking'] === true && !restro.HasTableBooking.includes(route.query['Yes'])){
                 flagHOD=0;
             }else if(route.query['HasTableBooking'] === false && !restro.HasTableBooking.includes(route.query['No'])){
                 flagHOD=0;
             }
         }
-        if (!restro.Cuisines.includes(route.query['Cuisines'])){
+        if (route.query['Cuisines'] && !restro.Cuisines.includes(route.query['Cuisines'])){
             flagCuisine=0;
         }
-        if (!restro.City.includes(route.query['city']))){
+        if (route.query['city'] && !(restro.City.includes(route.query['city']))){
             flagCity=0;
         }
-        if (!restro.RestaurantName.includes(route.query['RestaurantName'])){
+        if (route.query['RestaurantName'] && !(restro.RestaurantName.includes(route.query['RestaurantName']))){
             flagRestaurantName=0;
         }
-        if (!restro.Currency.includes(route.query['Currency'])){
+        if (route.query['Currency'] && !restro.Currency.includes(route.query['Currency'])){
             flagCurrency=0;
         }
-        if ((parseFloat(restro.AggregateRating.trim())) < (parseFloat(route.query['AggregateRating']))){
+        if (route.query['AggregateRating'] && ((parseFloat(restro.AggregateRating.trim())) < (parseFloat(route.query['AggregateRating'])))){
             flagRating=0;
         }
         if (flagHTB===1 && flagHOD===1 && flagCuisine===1 && flagCurrency===1 && flagRating===1 && flagCity===1 && flagRestaurantName===1){
             temp.push(restro);
         }
-});
+    });
+    filteredList.value = temp;
+    console.log(filteredList);
+})
 </script>
