@@ -130,7 +130,7 @@
                     </div>
                 </div>
             </div>
-            <button type="button" @click="apiAddRestaurant" class="btn btn-success col-4 col-md-3 col-lg-2 fs-5 mb-3 ms-2">Submit Form</button>
+            <button type="button" @click="apiAddRestaurant" href="/" class="btn btn-success col-4 col-md-3 col-lg-2 fs-5 mb-3 ms-2">Submit Form</button>
         </div>
         </form>
     </div>
@@ -165,11 +165,6 @@ let bodyObj = ref({
     RatingText : "good",
     Votes : "500"
 })
-
-// function printBodyObj(){
-//     bodyObj.value.PriceRange = minPrice.value.toString() + "-" + maxPrice.value.toString();
-//     console.log("bodyObj", JSON.stringify(bodyObj.value));
-// }
 
 function changeIsDeliveringNow(){
     if (document.getElementById('isDeliveringNow-Yes').checked){
@@ -209,32 +204,7 @@ function changeSwitchToOrderMenu(){
 
 function apiAddRestaurant(){
     bodyObj.value.PriceRange = minPrice.value.toString() + "-" + maxPrice.value.toString();
-    console.log(bodyObj.value)
-    
-    // useFetch("http://127.0.0.1:5500/restro", { mode: 'no-cors', method: 'POST', body: JSON.stringify(bodyObj.value)})
 
-    // useFetch("http://127.0.0.1:5500/restro", { mode: 'no-cors', method: 'POST', body: JSON.stringify(bodyObj.value), headers: {'Content-Type': ['application/json']} })
-    // .then((result)=>console.log("response", result));
-
-    // fetch("http://127.0.0.1:5500/restro", { mode: 'no-cors', method: 'POST', body: JSON.stringify(bodyObj.value), headers: {'Content-Type': 'application/json'}});
-
-//     let _data = {
-//   title: "foo",
-//   body: "bar", 
-//   userId:1
-// }
-// console.log({
-//         "Content-Type": "application/json"
-//     })
-
-const options = {
-      method: "POST",
-      mode: 'no-cors',
-      headers: new Headers({'Content-Type': 'application/json'}),
-      body: JSON.stringify(bodyObj.value)
-    }; 
-
-fetch('http://127.0.0.1:5500/restro', options)
-
+    useFetch("http://127.0.0.1:5500/restro", { method: 'POST', body: JSON.stringify(bodyObj.value), headers: {'Content-Type': 'application/json'}})
 }
 </script>
