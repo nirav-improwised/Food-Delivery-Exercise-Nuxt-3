@@ -1,11 +1,11 @@
 <template>
     <div>
-        <SearchPanel />
+        <SearchPanel :data="restros"/>
         <Filters />
-        <List :data="restros"/>
+        <List :data="restros" />
     </div>
 </template>
 
 <script setup>
-const { data: restros } = await useFetch('http://127.0.0.1:5500/restro', { mode: 'no-cors'});
+let { data: restros } = await useFetch('http://127.0.0.1:5500/restro', { mode: 'no-cors'});
 </script>
