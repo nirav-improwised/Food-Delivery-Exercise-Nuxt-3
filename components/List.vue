@@ -1,5 +1,5 @@
 <template>
-<section class="container-lg mt-1 mb-4 pt-1">
+<section class="container-lg mb-4">
     <div class="row row-cols-lg-4 row-cols-md-3 row-cols-xs-2 row-cols-1">
         <div v-for="restro, index in filteredList" :key="index" class="col">
             <div class="card shadow mt-4 border border-white">
@@ -36,7 +36,6 @@ let filteredList = ref(props.data.slice(0, 8));
 let route = useRoute();
 
 watch(() => route.query, async (newV, oldV) => {
-    console.log("route.query", route.query);
 
     let temp=[];
     props.data.forEach(restro => {
@@ -45,6 +44,8 @@ watch(() => route.query, async (newV, oldV) => {
         let flagCuisine = 1;
         let flagCurrency = 1;
         let flagRating = 1;
+        let flagCity = 1;
+        let flagRestaurantName = 1;
         if(route.query['HasOnlineDelivery']!==""){
             if (route.query['HasOnlineDelivery'] === 'true' && !(restro.HasOnlineDelivery.includes('Yes'))){
                 flagHOD=0;
@@ -64,17 +65,20 @@ watch(() => route.query, async (newV, oldV) => {
         if (!restro.Cuisines.includes(route.query['Cuisines'])){
             flagCuisine=0;
         }
+        if (!restro.City.includes(route.query['city']))){
+            flagCity=0;
+        }
+        if (!restro.RestaurantName.includes(route.query['RestaurantName'])){
+            flagRestaurantName=0;
+        }
         if (!restro.Currency.includes(route.query['Currency'])){
             flagCurrency=0;
         }
         if ((parseFloat(restro.AggregateRating.trim())) < (parseFloat(route.query['AggregateRating']))){
             flagRating=0;
         }
-        if (flagHTB===1 && flagHOD===1 && flagCuisine===1 && flagCurrency===1 && flagRating===1){
+        if (flagHTB===1 && flagHOD===1 && flagCuisine===1 && flagCurrency===1 && flagRating===1 && flagCity===1 && flagRestaurantName===1){
             temp.push(restro);
         }
-    });
-    filteredList.value = temp;
-    console.log("filteredList", filteredList.value);
 });
 </script>
