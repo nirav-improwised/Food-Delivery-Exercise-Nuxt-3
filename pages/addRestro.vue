@@ -6,63 +6,63 @@
             <div class="row g-3">
             <div class="mb-3 col-md-6 d-inline-block">
                 <label for="restroID" class="form-label">Restaurant ID</label>
-                <input type="number" v-model="restroID" class="form-control" id="restroID" placeholder="xxxxxx">
+                <input type="" v-model="bodyObj.RestaurantID" class="form-control" id="restroID" placeholder="xxxxxx">
             </div>
             <div class="mb-3 col-md-6 d-inline-block">
                 <label for="restroName" class="form-label">Restaurant Name</label>
-                <input type="text" v-model="restroName" class="form-control" id="restroName" placeholder="Restaurant Name">
+                <input type="text" v-model="bodyObj.RestaurantName" class="form-control" id="restroName" placeholder="Restaurant Name">
             </div>
             <div class="mb-3 h-50">
                 <label for="address" class="form-label">Address</label>
-                <textarea class="form-control" v-model="address" id="address" rows="4"></textarea>
+                <textarea class="form-control" v-model="bodyObj.Address" id="address" rows="4"></textarea>
             </div>
             <div class="mb-3 col-md-6">
                 <label for="locality" class="form-label">Locality</label>
-                <input type="text" v-model="locality" class="form-control" id="locality" placeholder="Locality">
+                <input type="text" v-model="bodyObj.Locality" class="form-control" id="locality" placeholder="Locality">
             </div>
             <div class="mb-3 col-md-3">
                 <label for="city" class="form-label">City</label>
-                <input type="text" v-model="city" class="form-control" id="city" placeholder="City">
+                <input type="text" v-model="bodyObj.City" class="form-control" id="city" placeholder="City">
             </div>
             <div class="mb-3 col-md-3">
                 <label for="countryCode" class="form-label">Country Code</label>
-                <input type="number" v-model="countryCode" class="form-control" id="countryCode" placeholder="xxxx">
+                <input type="" v-model="bodyObj.CountryCode" class="form-control" id="countryCode" placeholder="xxxx">
             </div>
             <div class="mb-3 col-md-6">
                 <label for="verbose" class="form-label">Verbose</label>
-                <input type="text" v-model="verbose" class="form-control" id="verbose" placeholder="Verbose">
+                <input type="text" v-model="bodyObj.Verbose" class="form-control" id="verbose" placeholder="Verbose">
             </div>
             <div class="mb-3 col-md-3">
                 <label for="latitude" class="form-label">Latitude</label>
-                <input type="number" v-model="latitude" class="form-control" id="latitude" placeholder="Latitude">
+                <input type="" v-model="bodyObj.Latitude" class="form-control" id="latitude" placeholder="Latitude">
             </div>
             <div class="mb-3 col-md-3">
                 <label for="longitude" class="form-label">Longitude</label>
-                <input type="number" v-model="longitude" class="form-control" id="longitude" placeholder="Longitude">
+                <input type="" v-model="bodyObj.Longitude" class="form-control" id="longitude" placeholder="Longitude">
             </div>
             <div class="mb-3">
                 <label for="cuisines" class="form-label">Cuisines</label>
-                <input type="text" v-model="cuisines" class="form-control" id="cuisines" placeholder="Cuisines">
+                <input type="text" v-model="bodyObj.Cuisines" class="form-control" id="cuisines" placeholder="Cuisines">
             </div>
             <div class="mb-3 col-md-6">
                 <label for="currency" class="form-label">Currency</label>
-                <input type="text" v-model="currency" class="form-control" id="currency" placeholder="Currency">
+                <input type="text" v-model="bodyObj.Currency" class="form-control" id="currency" placeholder="Currency">
             </div>
             <div class="mb-3 col-md-6">
                 <label for="averageCost" class="form-label">Average Cost</label>
-                <input type="number" v-model="averageCost" class="form-control" id="averageCost" placeholder="Average Cost">
+                <input type="" v-model="bodyObj.AverageCost" class="form-control" id="averageCost" placeholder="Average Cost">
             </div>
             
             <div class="mb-3 col-md-6">
                 <label for="" class="form-label col-7">Does your restaurant have Table Booking?</label>
                 <div class="form-check col-md-1 form-check-inline">
-                    <input class="form-check-input" type="radio" value="Yes" name="hasTableBooking" id="hasTableBooking">
+                    <input class="form-check-input" @click="changeHasTableBooking" type="radio" value="Yes" name="hasTableBooking" id="hasTableBooking-Yes">
                     <label class="form-check-label" for="hasTableBooking">
                         Yes
                     </label>
                 </div>
                 <div class="form-check col-md-1 form-check-inline">
-                    <input class="form-check-input" type="radio" value="No" name="hasTableBooking" id="hasTableBooking">
+                    <input class="form-check-input" @click="changeHasTableBooking" type="radio" value="No" name="hasTableBooking" id="hasTableBooking-No">
                     <label class="form-check-label" for="hasTableBooking">
                         No
                     </label>
@@ -72,13 +72,13 @@
             <div class="mb-3 col-md-6">
                 <label for="" class="form-label col-7">Does your restaurant have Home Delivery Service?</label>
                 <div class="form-check col-md-1 form-check-inline">
-                    <input class="form-check-input" type="radio" value="Yes" name="hasOnlineDelivery" id="hasOnlineDelivery">
+                    <input class="form-check-input" @click="changeHasOnlineDelivery" type="radio" value="Yes" name="hasOnlineDelivery" id="hasOnlineDelivery-Yes">
                     <label class="form-check-label" for="hasOnlineDelivery">
                         Yes
                     </label>
                 </div>
                 <div class="form-check col-md-1 form-check-inline">
-                    <input class="form-check-input" type="radio" value="No" name="hasOnlineDelivery" id="hasOnlineDelivery">
+                    <input class="form-check-input" @click="changeHasOnlineDelivery" type="radio" value="No" name="hasOnlineDelivery" id="hasOnlineDelivery">
                     <label class="form-check-label" for="hasOnlineDelivery">
                         No
                     </label>
@@ -87,13 +87,13 @@
             <div class="mb-3 col-md-6">
                 <label for="" class="form-label col-7">Is your restaurant available for Delivery Everyday?</label>
                 <div class="form-check col-md-1 form-check-inline">
-                    <input class="form-check-input" type="radio" value="Yes" name="isDeliveringNow" id="isDeliveringNow">
+                    <input class="form-check-input" @change="changeIsDeliveringNow" type="radio" value="Yes" name="isDeliveringNow" id="isDeliveringNow-Yes">
                     <label class="form-check-label" for="isDeliveringNow">
                         Yes
                     </label>
                 </div>
                 <div class="form-check col-md-1 form-check-inline">
-                    <input class="form-check-input" type="radio" value="No" name="isDeliveringNow" id="isDeliveringNow">
+                    <input class="form-check-input" @change="changeIsDeliveringNow" type="radio" value="No" name="isDeliveringNow" id="isDeliveringNow-No">
                     <label class="form-check-label" for="isDeliveringNow">
                         No
                     </label>
@@ -103,13 +103,13 @@
             <div class="mb-3 col-md-6">
                 <label for="" class="form-label col-7">Does your restaurant have Switch To Order Menu?</label>
                 <div class="form-check col-md-1 form-check-inline">
-                    <input class="form-check-input" type="radio" value="Yes" name="switchToOrderMenu" id="switchToOrderMenu">
+                    <input class="form-check-input" @change="changeSwitchToOrderMenu" type="radio" value="Yes" name="switchToOrderMenu" id="switchToOrderMenu-Yes">
                     <label class="form-check-label" for="switchToOrderMenu">
                         Yes
                     </label>
                 </div>
                 <div class="form-check col-md-1 form-check-inline">
-                    <input class="form-check-input" type="radio" value="No" name="switchToOrderMenu" id="switchToOrderMenu">
+                    <input class="form-check-input" @change="changeSwitchToOrderMenu" type="radio" value="No" name="switchToOrderMenu" id="switchToOrderMenu">
                     <label class="form-check-label" for="switchToOrderMenu">
                         No
                     </label>
@@ -120,24 +120,121 @@
                 <div class="w-25">
                     <label for="minPrice" class="form-label">Lowest Price</label>
                     <div class="pe-0">
-                        <input type="number" class="form-control w-md-50 w-75" id="minPrice" placeholder="e.g. 100">
+                        <input type="" v-model="minPrice" class="form-control w-md-50 w-75" id="minPrice" placeholder="e.g. 100">
                     </div>
                 </div>
                 <div class="w-25">
                     <label for="maxPrice" class="form-label">Highest Price</label>
                     <div class="pe-0">
-                        <input type="number" class="form-control w-md-50 w-75" id="maxPrice" placeholder="e.g. 500">
+                        <input type="" v-model="maxPrice" class="form-control w-md-50 w-75" id="maxPrice" placeholder="e.g. 500">
                     </div>
                 </div>
             </div>
-            <button type="submit" href="/" class="btn btn-success col-4 col-md-3 col-lg-2 fs-5 mb-3 ms-2">Submit Form</button>
+            <button type="button" @click="apiAddRestaurant" class="btn btn-success col-4 col-md-3 col-lg-2 fs-5 mb-3 ms-2">Submit Form</button>
         </div>
         </form>
     </div>
 </template>
 
 
-<script>
-let restroName, address, locality, city, verbose, cuisines = ref('');
-let restroID, countryCode, latitude, longitude, averageCost = ref(0);
+<script setup>
+
+let maxPrice = ref(0);
+let minPrice = ref(0);
+
+let bodyObj = ref({
+    RestaurantID : "",
+    RestaurantName : "",
+    CountryCode : "",
+    City: "",
+    Address : "",
+    Locality : "",
+    Verbose : "",
+    Longitude : "",
+    Latitude : "",
+    Cuisines : "",
+    AverageCost : "",
+    Currency : "",
+    HasTableBooking : "",
+    HasOnlineDelivery : "",
+    IsDeliveringNow : "",
+    SwitchToOrderMenu : "",
+    PriceRange : minPrice.value.toString() + "-" + maxPrice.value.toString(),
+    AggregateRating : "4.2",
+    RatingColor : "green",
+    RatingText : "good",
+    Votes : "500"
+})
+
+// function printBodyObj(){
+//     bodyObj.value.PriceRange = minPrice.value.toString() + "-" + maxPrice.value.toString();
+//     console.log("bodyObj", JSON.stringify(bodyObj.value));
+// }
+
+function changeIsDeliveringNow(){
+    if (document.getElementById('isDeliveringNow-Yes').checked){
+        bodyObj.value.IsDeliveringNow = 'Yes';
+    }
+    else{
+        bodyObj.value.IsDeliveringNow = 'No';
+    }
+}
+
+function changeHasTableBooking(){
+    if (document.getElementById('hasTableBooking-Yes').checked){
+        bodyObj.value.HasTableBooking = 'Yes';
+    }
+    else{
+        bodyObj.value.HasTableBooking = 'No';
+    }
+}
+
+function changeHasOnlineDelivery(){
+    if (document.getElementById('hasOnlineDelivery-Yes').checked){
+        bodyObj.value.HasOnlineDelivery = 'Yes';
+    }
+    else{
+        bodyObj.value.HasOnlineDelivery = 'No';
+    }
+}
+
+function changeSwitchToOrderMenu(){
+    if (document.getElementById('switchToOrderMenu-Yes').checked){
+        bodyObj.value.SwitchToOrderMenu = 'Yes';
+    }
+    else{
+        bodyObj.value.SwitchToOrderMenu = 'No';
+    }
+}
+
+function apiAddRestaurant(){
+    bodyObj.value.PriceRange = minPrice.value.toString() + "-" + maxPrice.value.toString();
+    console.log(bodyObj.value)
+    
+    // useFetch("http://127.0.0.1:5500/restro", { mode: 'no-cors', method: 'POST', body: JSON.stringify(bodyObj.value)})
+
+    // useFetch("http://127.0.0.1:5500/restro", { mode: 'no-cors', method: 'POST', body: JSON.stringify(bodyObj.value), headers: {'Content-Type': ['application/json']} })
+    // .then((result)=>console.log("response", result));
+
+    // fetch("http://127.0.0.1:5500/restro", { mode: 'no-cors', method: 'POST', body: JSON.stringify(bodyObj.value), headers: {'Content-Type': 'application/json'}});
+
+//     let _data = {
+//   title: "foo",
+//   body: "bar", 
+//   userId:1
+// }
+// console.log({
+//         "Content-Type": "application/json"
+//     })
+
+const options = {
+      method: "POST",
+      mode: 'no-cors',
+      headers: new Headers({'Content-Type': 'application/json'}),
+      body: JSON.stringify(bodyObj.value)
+    }; 
+
+fetch('http://127.0.0.1:5500/restro', options)
+
+}
 </script>
